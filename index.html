@@ -208,41 +208,41 @@ function saveAdmins(admins) {
 
 // ===== EXERCISES DB (abbreviated for space) =====
 const VEZBE = {
-  jumping_jacks:{naziv:"Jumping Jacks",serije:"30 sek",odmor:"-",opis:"Skakanje sa raširenjem ruku i nogu. Odlično za zagrevanje celog tela.",tempo:"Brzo"},
-  high_knees:{naziv:"Visoko podizanje kolena",serije:"30 sek",odmor:"-",opis:"Trčanje u mestu sa visokim podizanjem kolena.",tempo:"Brzo"},
-  arm_circles_warmup:{naziv:"Kruženje rukama",serije:"20 u svakom smeru",odmor:"-",opis:"Ispruži ruke u stranu i kruži.",tempo:"Umereno"},
-  hip_circles:{naziv:"Kruženje kukovima",serije:"10 u svakom smeru",odmor:"-",opis:"Ruke na kukove, kruži kukovima u velikom krugu.",tempo:"Polako"},
-  leg_swings:{naziv:"Zamasi nogama",serije:"10 po nozi",odmor:"-",opis:"Drži se za zid, zamahuj nogom napred-nazad.",tempo:"Umereno"},
-  march_in_place:{naziv:"Marsiranje u mestu",serije:"1 min",odmor:"-",opis:"Lagano marsiranje sa visokim kolenima.",tempo:"Polako"},
-  squat:{naziv:"Čučanj",serije:"4 x 15",odmor:"60 sek",opis:"Stani nogama u širini ramena. Spuštaj se kao da sedaš na stolicu.",tempo:"2 sek dole, 1 sek gore"},
-  lunge:{naziv:"Iskorak",serije:"3 x 12 po nozi",odmor:"60 sek",opis:"Korak napred, spusti zadnje koleno ka podu.",tempo:"2 sek dole, 1 sek gore"},
-  glute_bridge:{naziv:"Most za zadnjicu",serije:"4 x 20",odmor:"45 sek",opis:"Leži na leđa, kolena savijena. Podizaj kukove stežući zadnjicu.",tempo:"2 sek gore, zadrži 1 sek"},
-  hip_thrust:{naziv:"Hip Thrust",serije:"4 x 15",odmor:"75 sek",opis:"Leđa na klupi, podizaj kukove maksimalno stežući zadnjicu.",tempo:"2 sek gore, zadrži 2 sek"},
-  sumo_squat:{naziv:"Sumo čučanj",serije:"4 x 15",odmor:"60 sek",opis:"Širok stav, prsti napolje. Spuštaj se ravno dole.",tempo:"3 sek dole, 1 sek gore"},
-  rdl:{naziv:"Rumunsko mrtvo dizanje",serije:"3 x 12",odmor:"75 sek",opis:"Bučice ispred butina, ravna leđa, nagni se napred gurajući kukove nazad.",tempo:"3 sek dole"},
-  calf_raise:{naziv:"Podizanje na prste",serije:"4 x 20",odmor:"30 sek",opis:"Podizaj se na prste, zadrži na vrhu.",tempo:"2 sek gore"},
-  push_up:{naziv:"Sklekovi",serije:"3 x 10-15",odmor:"60 sek",opis:"Ruke šire od ramena, spuštaj grudi ka podu.",tempo:"2 sek dole, 1 sek gore"},
-  wall_push_up:{naziv:"Sklekovi uz zid",serije:"3 x 15",odmor:"45 sek",opis:"Dlanovi na zidu u visini ramena.",tempo:"2 sek ka zidu"},
-  rowing:{naziv:"Veslanje bučicama",serije:"3 x 12 po ruci",odmor:"60 sek",opis:"Jedna ruka i koleno na klupi, vuci bučicu prema boku.",tempo:"1 sek gore, 2 sek dole"},
-  shoulder_press:{naziv:"Potisak iznad glave",serije:"3 x 12",odmor:"60 sek",opis:"Bučice u visini ramena, guraj pravo gore.",tempo:"1 sek gore, 2 sek dole"},
-  bicep_curl:{naziv:"Biceps pregib",serije:"3 x 12",odmor:"45 sek",opis:"Bučice u rukama, savijaj laktove dižući bučice.",tempo:"2 sek gore, 2 sek dole"},
-  tricep_dip:{naziv:"Triceps propadanja",serije:"3 x 10",odmor:"60 sek",opis:"Ruke na ivici stolice, spuštaj telo savijajući laktove.",tempo:"2 sek dole"},
-  plank:{naziv:"Plank",serije:"3 x 30-60 sek",odmor:"30 sek",opis:"Podlaktice i prsti na podu, telo u ravnoj liniji.",tempo:"Statično"},
-  dead_bug:{naziv:"Dead Bug",serije:"3 x 10 po strani",odmor:"45 sek",opis:"Leđa na podu, istovremeno spusti suprotnu ruku i nogu.",tempo:"Kontrolisano"},
-  bird_dog:{naziv:"Ptica-pas",serije:"3 x 10 po strani",odmor:"45 sek",opis:"Četvoronožni položaj, ispruži suprotnu ruku i nogu.",tempo:"Zadrži 2 sek"},
-  mountain_climber:{naziv:"Penjač",serije:"3 x 30 sek",odmor:"30 sek",opis:"Pozicija skleka, naizmenično privlači kolena ka grudima.",tempo:"Brzo"},
-  russian_twist:{naziv:"Ruska rotacija",serije:"3 x 20",odmor:"45 sek",opis:"Sedi, noge podignute, rotiraj trup levo-desno.",tempo:"Kontrolisano"},
-  crunch:{naziv:"Trbušnjaci",serije:"3 x 20",odmor:"30 sek",opis:"Leđa na podu, podizaj ramena stežući trbušne mišiće.",tempo:"1 sek gore, 2 sek dole"},
-  chair_sit_stand:{naziv:"Ustajanje sa stolice",serije:"2 x 10",odmor:"60 sek",opis:"Sedi na stolicu, ustani bez pomoći ruku.",tempo:"Polako i kontrolisano"},
-  cat_cow:{naziv:"Mačka-krava",serije:"3 x 10",odmor:"30 sek",opis:"Četvoronožni položaj. Udah — zaobli leđa. Izdah — spusti stomak.",tempo:"Sa disanjem"},
-  pelvic_tilt:{naziv:"Nagib karlice",serije:"3 x 15",odmor:"30 sek",opis:"Leđa na podu, kolena savijena. Pritisni donja leđa u pod.",tempo:"Zadrži 5 sek"},
-  quad_stretch:{naziv:"Istezanje prednje lože",serije:"30 sek po nozi",odmor:"-",opis:"Stojeći, savij koleno i uhvati stopalo iza sebe.",tempo:"Drži"},
-  hamstring_stretch:{naziv:"Istezanje zadnje lože",serije:"30 sek po nozi",odmor:"-",opis:"Sedi, jedna noga ispružena, nagni se napred.",tempo:"Drži"},
-  hip_flexor_stretch:{naziv:"Istezanje pregibača kuka",serije:"30 sek po strani",odmor:"-",opis:"Iskorak, spusti zadnje koleno, guraj kukove napred.",tempo:"Drži"},
-  chest_stretch:{naziv:"Istezanje grudi",serije:"30 sek",odmor:"-",opis:"Ruka na zidu, rotiraj telo suprotno.",tempo:"Drži"},
-  shoulder_stretch:{naziv:"Istezanje ramena",serije:"30 sek po ruci",odmor:"-",opis:"Privuci ruku preko grudi drugom rukom.",tempo:"Drži"},
-  calf_stretch:{naziv:"Istezanje listova",serije:"30 sek po nozi",odmor:"-",opis:"Iskorak uz zid, zadnja noga ispružena.",tempo:"Drži"},
-  spinal_twist:{naziv:"Rotacija kičme",serije:"30 sek po strani",odmor:"-",opis:"Leđa na podu, kolena savij na jednu stranu.",tempo:"Drži"},
+  jumping_jacks:{naziv:"Jumping Jacks",serije:"3 x 30 sek",odmor:"20 sek",tempo:"Brzo",opis:"Početni položaj: Stoj uspravno, stopala spojena, ruke uz telo.\nIzvođenje: Skoči i istovremeno raširi noge u stranu, a ruke podigni iznad glave; drugim skokom vrati se u početni položaj.\nDisanje: Ravnomerno, kroz nos i usta tokom čitave serije.\nČeste greške: Spuštanje težine na pete; nedovoljno podizanje ruku.\nSaveti: Doskoči meko na prednji deo stopala; drži trbušne mišiće aktivirane."},
+  high_knees:{naziv:"Visoko podizanje kolena",serije:"3 x 30 sek",odmor:"20 sek",tempo:"Brzo",opis:"Početni položaj: Stoj uspravno, ruke savijene u laktovima.\nIzvođenje: Trči u mestu i naizmenično podiži kolena do visine kukova.\nDisanje: Brzo i ravnomerno.\nČeste greške: Pognuta leđa; podizanje stopala umesto kolena.\nSaveti: Drži trup uspravno; svaki kontakt sa podom neka bude na prednjem delu stopala."},
+  arm_circles_warmup:{naziv:"Kruženje rukama",serije:"2 x 20 (po smeru)",odmor:"-",tempo:"Umereno",opis:"Početni položaj: Stoj uspravno, ruke ispružene u stranu u visini ramena.\nIzvođenje: Pravi male do srednje krugove rukama unapred 20 ponavljanja, zatim unazad 20 ponavljanja.\nDisanje: Mirno i kontrolisano.\nČeste greške: Podizanje ramena ka ušima.\nSaveti: Drži lopatice spuštene i blago skupljene."},
+  hip_circles:{naziv:"Kruženje kukovima",serije:"2 x 10 (po smeru)",odmor:"-",tempo:"Polako",opis:"Početni položaj: Stoj raširenih nogu u širini ramena, ruke na kukovima.\nIzvođenje: Pravi velike krugove kukovima u smeru kazaljke 10 puta, pa u suprotnom smeru 10 puta.\nDisanje: Ravnomerno.\nČeste greške: Pomeranje gornjeg dela tela.\nSaveti: Glava i ramena ostaju mirni; kreće se samo karlica."},
+  leg_swings:{naziv:"Zamasi nogama",serije:"2 x 10 po nozi",odmor:"-",tempo:"Umereno",opis:"Početni položaj: Stoj bočno uz zid, jednom rukom se osloni o zid.\nIzvođenje: Zamahuj jednom nogom napred i nazad u kontrolisanoj amplitudi, bez bacanja.\nDisanje: Mirno, izdah pri zamahu napred.\nČeste greške: Savijanje kolena stajne noge; rotacija karlice.\nSaveti: Drži karlicu fiksiranu; postepeno povećavaj amplitudu."},
+  march_in_place:{naziv:"Marširanje u mestu",serije:"1-2 min",odmor:"-",tempo:"Polako do umereno",opis:"Početni položaj: Stoj uspravno, ruke savijene u laktovima.\nIzvođenje: Marširaj u mestu podižući kolena do visine kukova; ruke se kreću naizmenično.\nDisanje: Mirno i ravnomerno.\nČeste greške: Spuštanje pogleda; opušten trup.\nSaveti: Drži pogled napred i aktiviraj trbušne mišiće."},
+  squat:{naziv:"Čučanj",serije:"4 x 12-15",odmor:"60 sek",tempo:"2 sek dole, 1 sek gore",opis:"Početni položaj: Stopala u širini ramena, prsti blago okrenuti napolje, težina na celom stopalu.\nIzvođenje: Guraj kukove unazad kao da sedaš na stolicu; spuštaj se dok butine ne budu paralelne sa podom (ili koliko mobilnost dozvoljava); zatim se kontrolisano vrati u stajaći položaj kroz pete.\nDisanje: Udah pri spuštanju, izdah pri podizanju.\nČeste greške: Kolena upadaju ka unutra; podizanje peta; zaobljena leđa.\nSaveti: Kolena prati pravac prstiju; grudi gore; aktiviraj trup tokom celog pokreta."},
+  lunge:{naziv:"Iskorak",serije:"3 x 10-12 po nozi",odmor:"60 sek",tempo:"2 sek dole, 1 sek gore",opis:"Početni položaj: Stoj uspravno, stopala u širini kukova, ruke uz telo ili na kukovima.\nIzvođenje: Napravi dug korak napred jednom nogom i spuštaj se dok oba kolena nisu pod uglom od približno 90 stepeni; zadnje koleno blago iznad poda; vrati se odgurivanjem prednjom petom.\nDisanje: Udah pri spuštanju, izdah pri podizanju.\nČeste greške: Prednje koleno prelazi prste; trup pada napred.\nSaveti: Drži trup uspravno; ramena iznad kukova; korak dovoljno dug."},
+  glute_bridge:{naziv:"Most za zadnjicu",serije:"4 x 15-20",odmor:"45 sek",tempo:"2 sek gore, zadržati 1 sek",opis:"Početni položaj: Leži na leđima, kolena savijena, stopala ravno na podu u širini kukova, ruke uz telo.\nIzvođenje: Stegni gluteuse i podiži kukove dok telo od kolena do ramena ne formira ravnu liniju; zadrži 1 sekundu na vrhu i kontrolisano spusti.\nDisanje: Izdah pri podizanju, udah pri spuštanju.\nČeste greške: Hiperekstenzija donjih leđa; aktivacija zadnje lože umesto gluteusa.\nSaveti: Pritisni petama u pod; stezanje treba da se oseti u zadnjici, ne u krstima."},
+  hip_thrust:{naziv:"Hip Thrust",serije:"4 x 12-15",odmor:"75 sek",tempo:"2 sek gore, zadržati 2 sek",opis:"Početni položaj: Gornji deo leđa oslonjen na klupu (ili kauč), stopala ravno na podu u širini kukova, kolena savijena pod 90 stepeni.\nIzvođenje: Snažno odguruj kukove navise dok kukovi, kolena i ramena ne budu u istoj liniji; zadrži kontrakciju 2 sekunde, kontrolisano spusti.\nDisanje: Izdah pri podizanju, udah pri spuštanju.\nČeste greške: Pretjerano izvijanje krsta; podizanje peta.\nSaveti: Brada blago povučena; pogled napred; ceo pokret vodi iz gluteusa."},
+  sumo_squat:{naziv:"Sumo čučanj",serije:"4 x 12-15",odmor:"60 sek",tempo:"3 sek dole, 1 sek gore",opis:"Početni položaj: Široki stav (oko 1,5 širine ramena), prsti okrenuti spolja pod uglom od 30-45 stepeni.\nIzvođenje: Spuštaj se vertikalno gurajući kolena u pravcu prstiju; trup uspravan; podigni se kroz pete stežući unutrašnju stranu butina i gluteuse.\nDisanje: Udah dole, izdah gore.\nČeste greške: Naginjanje trupa napred; kolena upadaju ka unutra.\nSaveti: Aktivno guraj kolena spolja; težina ravnomerno raspoređena."},
+  rdl:{naziv:"Rumunsko mrtvo dizanje",serije:"3 x 10-12",odmor:"75 sek",tempo:"3 sek dole, 1 sek gore",opis:"Početni položaj: Stoj uspravno, stopala u širini kukova, bučice ili šipka ispred butina.\nIzvođenje: Sa blago savijenim kolenima, gurni kukove unazad i spušti teret duž butina; spuštaj dok ne osetiš istezanje zadnje lože (otprilike do sredine potkolenice); vrati se aktivacijom gluteusa.\nDisanje: Udah pri spuštanju, izdah pri podizanju.\nČeste greške: Zaobljavanje leđa; savijanje kolena umesto pomeranja kukova.\nSaveti: Leđa neutralna sve vreme; teret klizi uz telo; lopatice povučene."},
+  calf_raise:{naziv:"Podizanje na prste",serije:"4 x 15-20",odmor:"30 sek",tempo:"2 sek gore, 2 sek dole",opis:"Početni položaj: Stoj uspravno, stopala u širini kukova; prednji deo stopala na ivici stepenika ili tla.\nIzvođenje: Podiži se na prste maksimalno visoko; zadrži 1 sekundu; kontrolisano spusti pete ispod nivoa stepenika.\nDisanje: Izdah pri podizanju.\nČeste greške: Brzo bacanje; nekompletan opseg pokreta.\nSaveti: Drži se za zid radi balansa; fokus na osećaj u listovima."},
+  push_up:{naziv:"Sklekovi",serije:"3 x 10-15",odmor:"60 sek",tempo:"2 sek dole, 1 sek gore",opis:"Početni položaj: Plank pozicija, dlanovi malo šire od ramena, telo u pravoj liniji od glave do peta.\nIzvođenje: Spuštaj telo savijajući laktove (pod uglom od oko 45 stepeni u odnosu na trup) dok grudi ne budu blizu poda; potisni se nazad u početni položaj.\nDisanje: Udah pri spuštanju, izdah pri potiskivanju.\nČeste greške: Klonula kukova; širenje laktova; nepotpun opseg.\nSaveti: Aktiviraj trbuh i gluteuse; ako je preteško, izvedi sklekove na kolenima."},
+  wall_push_up:{naziv:"Sklekovi uz zid",serije:"3 x 12-15",odmor:"45 sek",tempo:"2 sek ka zidu, 1 sek nazad",opis:"Početni položaj: Stoj ispred zida, dlanovi na zidu u visini ramena; korak od 60-80 cm od zida.\nIzvođenje: Savij laktove i približi grudi zidu; potisni se nazad u početni položaj.\nDisanje: Udah ka zidu, izdah pri potiskivanju.\nČeste greške: Zakrivljen vrat; pomeranje stopala.\nSaveti: Aktiviraj trbuh; telo u pravoj liniji."},
+  rowing:{naziv:"Veslanje bučicama (jednoručno)",serije:"3 x 10-12 po ruci",odmor:"60 sek",tempo:"1 sek gore, 2 sek dole",opis:"Početni položaj: Postavi jedno koleno i istoimenu šaku na klupu; druga noga na podu; bučica u slobodnoj ruci sa rukom ispruženom prema podu.\nIzvođenje: Vuci bučicu ka boku trupa povlačeći lakat unazad; lopatica se aktivno povlači ka kičmi; kontrolisano spuštaj.\nDisanje: Izdah pri povlačenju, udah pri spuštanju.\nČeste greške: Rotacija trupa; vuča rukom umesto leđima.\nSaveti: Trup paralelan sa podom; lakat klizi uz telo."},
+  shoulder_press:{naziv:"Potisak iznad glave",serije:"3 x 10-12",odmor:"60 sek",tempo:"1 sek gore, 2 sek dole",opis:"Početni položaj: Sedi ili stoj uspravno; bučice u visini ramena, dlanovi okrenuti napred.\nIzvođenje: Potisni bučice pravo iznad glave dok ruke nisu skoro potpuno ispružene; kontrolisano spusti nazad.\nDisanje: Izdah pri potiskivanju, udah pri spuštanju.\nČeste greške: Pretjerana ekstenzija krsta; spajanje bučica iznad glave.\nSaveti: Aktiviraj trup; bučice prate vertikalnu putanju; ne blokiraj laktove."},
+  bicep_curl:{naziv:"Biceps pregib",serije:"3 x 10-12",odmor:"45 sek",tempo:"2 sek gore, 2 sek dole",opis:"Početni položaj: Stoj uspravno, ruke uz telo, bučice u rukama, dlanovi okrenuti napred.\nIzvođenje: Savijaj laktove podižući bučice ka ramenima bez pomeranja gornjeg dela ruke; zadrži kratko na vrhu i kontrolisano spuštaj.\nDisanje: Izdah pri podizanju, udah pri spuštanju.\nČeste greške: Ljuljanje trupom; pomeranje laktova napred.\nSaveti: Laktovi fiksirani uz telo; fokus na kontrolu."},
+  tricep_dip:{naziv:"Triceps propadanja (na stolici)",serije:"3 x 8-12",odmor:"60 sek",tempo:"2 sek dole, 1 sek gore",opis:"Početni položaj: Sedi na ivici čvrste stolice ili klupe; dlanovi pored kukova hvataju ivicu; ispruži noge napred (ili savij kolena za lakšu varijantu).\nIzvođenje: Spuštaj kukove ispred stolice savijanjem laktova pod uglom 90 stepeni; potisni se nazad gore.\nDisanje: Udah pri spuštanju, izdah pri potiskivanju.\nČeste greške: Pomeranje napred-nazad; laktovi se razdvajaju u stranu.\nSaveti: Laktovi idu pravo unazad; ramena spuštena."},
+  plank:{naziv:"Plank",serije:"3 x 30-60 sek",odmor:"30 sek",tempo:"Statično",opis:"Početni položaj: Podlaktice na podu u širini ramena, prsti nogu na podu, telo u ravnoj liniji od glave do peta.\nIzvođenje: Aktiviraj trbušne i gluteus mišiće; zadrži položaj predviđeno vreme.\nDisanje: Mirno i kontrolisano, bez zadržavanja daha.\nČeste greške: Klonuli kukovi; podignuta zadnjica; pad glave.\nSaveti: Pogled u pod neposredno ispred ruku; brada blago povučena."},
+  dead_bug:{naziv:"Dead Bug",serije:"3 x 10 po strani",odmor:"45 sek",tempo:"Kontrolisano",opis:"Početni položaj: Leži na leđima, ruke ispružene ka plafonu, kolena savijena pod 90 stepeni iznad kukova.\nIzvođenje: Polako spuštaj suprotnu ruku iznad glave i istovremeno ispružaj suprotnu nogu ka podu; vrati se u početni položaj i ponovi na drugoj strani.\nDisanje: Izdah pri ispružanju, udah pri povratku.\nČeste greške: Odizanje krsta od poda.\nSaveti: Donja leđa moraju ostati u kontaktu sa podom tokom celog pokreta."},
+  bird_dog:{naziv:"Ptica-pas",serije:"3 x 10 po strani",odmor:"45 sek",tempo:"Zadržati 2 sek",opis:"Početni položaj: Četvoronožni stav; dlanovi ispod ramena, kolena ispod kukova; leđa neutralna.\nIzvođenje: Istovremeno ispruži suprotnu ruku napred i nogu nazad u jednu ravnu liniju; zadrži 2 sekunde; kontrolisano vrati i promeni stranu.\nDisanje: Izdah pri ispružanju.\nČeste greške: Rotacija karlice; podizanje noge previsoko.\nSaveti: Pogled u pod; aktiviraj trbuh za stabilnost."},
+  mountain_climber:{naziv:"Penjač",serije:"3 x 30 sek",odmor:"30 sek",tempo:"Brzo",opis:"Početni položaj: Pozicija visokog planka; ruke ispod ramena, telo u ravnoj liniji.\nIzvođenje: Naizmenično privlači kolena ka grudima u brzom tempu, kao trčanje u mestu.\nDisanje: Brzo i ravnomerno.\nČeste greške: Podizanje kukova; oslanjanje na ramena.\nSaveti: Drži kukove u nivou; aktivan trbuh."},
+  russian_twist:{naziv:"Ruska rotacija",serije:"3 x 16-20",odmor:"45 sek",tempo:"Kontrolisano",opis:"Početni položaj: Sedi na podu, kolena savijena, stopala blago iznad poda; trup nagnut unazad pod uglom 45 stepeni; ruke spojene ispred grudi.\nIzvođenje: Rotiraj trup naizmenično levo i desno; svaka rotacija je jedno ponavljanje (po strani).\nDisanje: Ravnomerno.\nČeste greške: Pokret samo iz ruku bez rotacije trupa; zaobljena leđa.\nSaveti: Leđa neutralna; pokret kreće iz kosih trbušnih mišića."},
+  crunch:{naziv:"Trbušnjaci",serije:"3 x 15-20",odmor:"30 sek",tempo:"1 sek gore, 2 sek dole",opis:"Početni položaj: Leži na leđima, kolena savijena, stopala ravno na podu; ruke iza glave (ne povlači vrat).\nIzvođenje: Podiži lopatice od poda stežući trbušne mišiće; kontrolisano spuštaj.\nDisanje: Izdah pri podizanju, udah pri spuštanju.\nČeste greške: Povlačenje vrata rukama; brz, nekontrolisan pokret.\nSaveti: Brada blago od grudi (kao da držiš jabuku); pokret iz trbuha, ne iz vrata."},
+  chair_sit_stand:{naziv:"Ustajanje sa stolice",serije:"2-3 x 8-10",odmor:"60 sek",tempo:"Polako i kontrolisano",opis:"Početni položaj: Sedi na čvrstoj stolici, stopala ravno na podu u širini kukova, ruke prekrštene na grudima.\nIzvođenje: Bez pomoći ruku, ustani u potpuno uspravan položaj; potom se polako vrati u sedeći položaj.\nDisanje: Izdah pri ustajanju, udah pri spuštanju.\nČeste greške: Pad u sedeći položaj; nagib trupa previše napred.\nSaveti: Težina na petama; trup blago nagnut napred za balans."},
+  cat_cow:{naziv:"Mačka-krava",serije:"3 x 10",odmor:"30 sek",tempo:"Sa disanjem",opis:"Početni položaj: Četvoronožni stav; dlanovi ispod ramena, kolena ispod kukova.\nIzvođenje: Pri udahu spuštaj stomak ka podu, podigni glavu i sednu kost (krava); pri izdahu zaobli leđa ka plafonu i spusti glavu (mačka).\nDisanje: Sinhronizovano sa pokretom.\nČeste greške: Naglo pomeranje; pad ramena.\nSaveti: Pokret treba da bude tečan; kreće se cela kičma."},
+  pelvic_tilt:{naziv:"Nagib karlice",serije:"3 x 12-15",odmor:"30 sek",tempo:"Zadržati 5 sek",opis:"Početni položaj: Leži na leđima, kolena savijena, stopala ravno na podu.\nIzvođenje: Pritisni donja leđa u pod aktivacijom trbuha (karlica se blago rotira unazad); zadrži 5 sekundi; opusti.\nDisanje: Izdah pri pritisku, udah pri opuštanju.\nČeste greške: Korišćenje gluteusa umesto trbuha.\nSaveti: Pokret je mali; oseti aktivaciju u dnu trbuha."},
+  quad_stretch:{naziv:"Istezanje prednje lože",serije:"30 sek po nozi",odmor:"-",tempo:"Drži",opis:"Početni položaj: Stoj uspravno, eventualno se osloni jednom rukom o zid radi balansa.\nIzvođenje: Savij jedno koleno i uhvati stopalo istom rukom iza tela; lagano povuci petu ka zadnjici.\nDisanje: Mirno i duboko.\nČeste greške: Naginjanje napred; rotacija kuka.\nSaveti: Kolena drži blizu jedno drugom; karlica blago podvučena."},
+  hamstring_stretch:{naziv:"Istezanje zadnje lože",serije:"30 sek po nozi",odmor:"-",tempo:"Drži",opis:"Početni položaj: Sedi na podu, jedna noga ispružena ispred, druga savijena tako da stopalo dodiruje unutrašnjost butine.\nIzvođenje: Zadrži ravna leđa i polako se naginji napred ka ispruženom stopalu dok ne osetiš istezanje.\nDisanje: Mirno i duboko; sa svakim izdahom blago produbi istezanje.\nČeste greške: Zaobljena leđa; sila preko bola.\nSaveti: Cilj je istezanje, ne dodirivanje stopala."},
+  hip_flexor_stretch:{naziv:"Istezanje pregibača kuka",serije:"30 sek po strani",odmor:"-",tempo:"Drži",opis:"Početni položaj: Iskorak; zadnje koleno spušteno na pod (eventualno na podmetač), prednje koleno pod 90 stepeni.\nIzvođenje: Lagano guraj kukove napred dok ne osetiš istezanje u prednjem delu kuka zadnje noge.\nDisanje: Mirno i duboko.\nČeste greške: Prednje koleno prelazi prste; izvijanje krsta.\nSaveti: Stegni gluteus zadnje noge da pojačaš istezanje."},
+  chest_stretch:{naziv:"Istezanje grudi",serije:"30 sek po strani",odmor:"-",tempo:"Drži",opis:"Početni položaj: Stoj bočno uz dovratak ili zid; podlaktica oslonjena o zid, lakat u visini ramena.\nIzvođenje: Polako rotiraj telo u suprotnu stranu od ruke dok ne osetiš istezanje u grudima i prednjem ramenu.\nDisanje: Mirno i duboko.\nČeste greške: Podizanje ramena.\nSaveti: Lopatica spuštena; istezanje treba da bude prijatno, ne bolno."},
+  shoulder_stretch:{naziv:"Istezanje ramena",serije:"30 sek po ruci",odmor:"-",tempo:"Drži",opis:"Početni položaj: Stoj uspravno.\nIzvođenje: Ispruži jednu ruku ispred grudi i drugom rukom je nežno povuci ka grudima dok ne osetiš istezanje u ramenu.\nDisanje: Mirno.\nČeste greške: Rotacija trupa; podizanje ramena.\nSaveti: Drži ramena spuštena i ravna."},
+  calf_stretch:{naziv:"Istezanje listova",serije:"30 sek po nozi",odmor:"-",tempo:"Drži",opis:"Početni položaj: Stoj ispred zida, dlanovi na zidu u visini ramena; jedna noga napred savijena, druga nazad ispružena.\nIzvođenje: Pritisni zadnju petu u pod i lagano guraj kukove napred dok ne osetiš istezanje u zadnjem listu.\nDisanje: Mirno i duboko.\nČeste greške: Podizanje zadnje pete.\nSaveti: Zadnja noga potpuno ispružena; stopala paralelna."},
+  spinal_twist:{naziv:"Rotacija kičme",serije:"30 sek po strani",odmor:"-",tempo:"Drži",opis:"Početni položaj: Leži na leđima, ruke raširene u stranu u obliku slova T.\nIzvođenje: Savij oba kolena ka grudima, pa ih polako spusti na jednu stranu; glavu okreni u suprotnu stranu.\nDisanje: Mirno i duboko; sa svakim izdahom dozvoli kolenima da se opuste niže.\nČeste greške: Odizanje suprotnog ramena od poda.\nSaveti: Cilj je relaksacija; ne forsiraj amplitudu."},
 };
 
 function getAgeGroup(age) { return age<40?"young":age<55?"middle":"senior"; }
@@ -305,20 +305,26 @@ function getCardio(goal,age) {
 }
 
 function calculateMacros(profile) {
-  const {age,weight,height,goal,activity,bodyType,gender}=profile;
-  let bmr = gender==="male" ? 10*weight+6.25*height-5*age+5 : 10*weight+6.25*height-5*age-161;
+  const {age,weight,height,goal,activity,gender}=profile;
+  const bmr = gender==="male"
+    ? 10*weight+6.25*height-5*age+5
+    : 10*weight+6.25*height-5*age-161;
   const m={sed:1.2,low:1.375,med:1.55,high:1.725};
-  let tdee=bmr*(m[activity]||1.4);
-  if(goal==="lose") tdee-=500;
-  else if(goal==="muscle") tdee+=250;
-  else if(goal==="strength") tdee+=200;
-  if(bodyType==="endo"&&goal==="lose") tdee-=100;
-  if(bodyType==="ecto"&&goal==="muscle") tdee+=150;
-  const minKcal=gender==="male"?1500:1200;
-  const kcal=Math.max(Math.round(tdee),minKcal);
-  const prot=Math.round(weight*2);
-  const fat=Math.round(weight*0.8);
-  const carb=Math.round(Math.max(kcal-prot*4-fat*9,0)/4);
+  const tdee = bmr*(m[activity]||1.4);
+  let target = tdee;
+  if(goal==="lose")          target = tdee - Math.min(500, tdee*0.20);
+  else if(goal==="muscle")   target = tdee + 300;
+  else if(goal==="strength") target = tdee + 200;
+  else if(goal==="cardio")   target = tdee - 150;
+  let minByGender = gender==="male" ? 1600 : 1300;
+  if(age>=50) minByGender += 100;
+  if(age>=65) minByGender += 100;
+  const safeFloor = Math.max(Math.round(bmr*0.95), minByGender);
+  const kcal = Math.round(Math.max(target, safeFloor));
+  const protPerKg = (goal==="muscle"||goal==="strength") ? 2.0 : (goal==="lose" ? 1.8 : 1.6);
+  const prot = Math.round(weight*protPerKg);
+  const fat  = Math.round((kcal*0.28)/9);
+  const carb = Math.round(Math.max(kcal-prot*4-fat*9,0)/4);
   return {kcal,prot,carb,fat};
 }
 
@@ -356,9 +362,96 @@ WEEK_MEALS.strength=WEEK_MEALS.muscle;
 WEEK_MEALS.cardio=WEEK_MEALS.maintain;
 WEEK_MEALS.rehab=WEEK_MEALS.maintain;
 
+const ALLERGEN_MAP = {
+  "laktoz":["jogurt","sira","sirom","sirevi","mlek","mleč","kefir","cottage"],
+  "mlek":["jogurt","sira","sirom","mlek","mleč","kefir","cottage"],
+  "mleč":["jogurt","sira","sirom","mlek","mleč","kefir","cottage"],
+  "gluten":["hleb","tost","pasta","musli","ovsen","palačink","integraln"],
+  "pšenic":["hleb","tost","pasta","musli","integraln"],
+  "psenic":["hleb","tost","pasta","musli","integraln"],
+  "jaj":["jaj","omlet","kajgana","scrambled"],
+  "rib":["riba","ribe","ribu","losos","skuša","sardin","orad","pastrmk","skuš"],
+  "morsk":["riba","losos","skuša","sardin","orad","pastrmk","skuš"],
+  "orah":["orah","oras","badem","lešnik","lesnik"],
+  "oras":["orah","oras","badem","lešnik","lesnik"],
+  "badem":["badem"],
+  "kikiriki":["kikiriki"],
+  "soja":["soja","tofu"],
+  "med":["med "],
+  "avokad":["avokad"],
+  "citrus":["limun","narandž","grejp","mandarin"],
+};
+const SAFE_POOL = {
+  dorucak:[
+    "Heljdina kaša (60g) sa svežim borovnicama\nBiljni čaj",
+    "Pirinčani puding (60g pirinča kuvanog na vodi) sa cimetom i jabukom\nBiljni čaj",
+    "Salata od kvinoje (60g) sa paradajzom i krastavcem\nBiljni čaj",
+    "Sveže voće (250g) sa semenkama suncokreta (25g)\nBiljni čaj"
+  ],
+  uzina1:[
+    "Sveže voće (1 jabuka ili kruška) + semenke suncokreta (20g)",
+    "Šargarepa štapići + humus od slanutka (50g)",
+    "Banana + semenke bundeve (20g)"
+  ],
+  rucak:[
+    "Piletina na žaru (150g)\nKvinoja (60g)\nZelena salata sa maslinovim uljem",
+    "Ćuretina pečena (150g)\nBatat (120g)\nSalata od paradajza i krastavca",
+    "Pasulj kuvani (200g)\nKuvani krompir (150g)\nKuvani spanać",
+    "Sočivo kuvano (200g)\nKuvana šargarepa\nMaslinovo ulje"
+  ],
+  uzina2:[
+    "Sveže voće (1 kom) + semenke bundeve (15g)",
+    "Šargarepa štapići + humus (50g)",
+    "Suvo voće (30g) + semenke suncokreta (10g)"
+  ],
+  vecera:[
+    "Piletina na pari (130g)\nKuvani brokoli i šargarepa\nMaslinovo ulje",
+    "Ćuretina pečena (130g)\nKuvani batat (100g)\nZelena salata",
+    "Kuvani pasulj (180g) sa povrćem\nKuvana cvekla",
+    "Kvinoja (60g) sa pečenim povrćem (tikvice, paprika, paradajz)"
+  ]
+};
+function getBanwords(profile) {
+  const out = new Set();
+  const txt = ((profile.allergies||"") + " " + (profile.notes||"")).toLowerCase();
+  for(const k of Object.keys(ALLERGEN_MAP)) {
+    if(txt.includes(k)) ALLERGEN_MAP[k].forEach(b=>out.add(b));
+  }
+  const probs = profile.teloProblems || [];
+  if(probs.includes("stomak")) ["pasulj","grah","sirov kupus","ljut","kafa"].forEach(b=>out.add(b));
+  if(probs.includes("pcos"))   ["beli šećer","beli pirinač","beli hleb"].forEach(b=>out.add(b));
+  if(probs.includes("tiro"))   ["soja","tofu","sirov kupus","sirov brokoli"].forEach(b=>out.add(b));
+  return [...out];
+}
+function lineHasBan(line, banwords) {
+  if(!banwords.length) return false;
+  const l = (line||"").toLowerCase();
+  return banwords.some(b => l.includes(b));
+}
+function pickSafe(slot, banwords) {
+  const pool = SAFE_POOL[slot] || [];
+  for(const opt of pool) if(!lineHasBan(opt, banwords)) return opt;
+  const fallback = pool[0] || "Piletina na žaru (130g) sa kuvanim povrćem";
+  return fallback.split("\n").filter(ln=>!lineHasBan(ln,banwords)).join("\n") || "Piletina na žaru (130g) sa kuvanim povrćem";
+}
+function cleanMeal(meal, banwords) {
+  if(!banwords.length) return meal;
+  const out = {};
+  for(const slot of Object.keys(meal)) {
+    const lines = meal[slot].split("\n");
+    if(lines.some(ln => lineHasBan(ln, banwords))) {
+      out[slot] = pickSafe(slot, banwords);
+    } else {
+      out[slot] = meal[slot];
+    }
+  }
+  return out;
+}
 function getMeals(profile,dayIdx) {
-  const plans=WEEK_MEALS[profile.goal]||WEEK_MEALS.maintain;
-  return plans[dayIdx%7];
+  const plans = WEEK_MEALS[profile.goal] || WEEK_MEALS.maintain;
+  const meal = plans[dayIdx % 7];
+  const banwords = getBanwords(profile);
+  return cleanMeal(meal, banwords);
 }
 
 // ===== MAIN APP =====
@@ -935,7 +1028,7 @@ function App() {
                   <div style={{fontSize:"12px",color:"#8B7355",marginTop:"2px"}}>{v.odmor}</div>
                   {showExercise===v.naziv&&(
                     <div style={{marginTop:"10px",paddingTop:"10px",borderTop:"1px solid #E8DFD4",fontSize:"13px",color:"#5C4D3C",lineHeight:"1.6"}}>
-                      <p>{v.opis}</p>
+                      <p style={{whiteSpace:"pre-line"}}>{v.opis}</p>
                       {v.tempo&&<p style={{fontSize:"12px",color:"#8B7355",marginTop:"4px"}}>{t.tempo}: {v.tempo}</p>}
                     </div>
                   )}
@@ -972,7 +1065,7 @@ function App() {
                 <p style={{fontSize:"13px",color:"#5C4D3C",whiteSpace:"pre-line",lineHeight:"1.6"}}>{val}</p>
               </div>
             ))}
-            {currentUser.allergies&&<div style={{background:"#FFF0F0",borderRadius:"8px",padding:"10px",marginTop:"10px"}}><p style={{fontSize:"12px",color:"#C97064"}}>Napomena: Proverite sastojke prema vašim alergijama ({currentUser.allergies})</p></div>}
+            {currentUser.allergies&&<div style={{background:"#FFF0F0",borderRadius:"8px",padding:"10px",marginTop:"10px"}}><p style={{fontSize:"12px",color:"#C97064"}}>Napomena: Jelovnik je automatski prilagođen Vašim alergijama i zdravstvenim ograničenjima ({currentUser.allergies})</p></div>}
           </div>
         )}
         <p style={{fontSize:"12px",textAlign:"center",color:"#8B7355",marginTop:"8px"}}>{t.dayNote}</p>
