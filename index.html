@@ -306,27 +306,20 @@ function getCardio(goal,age) {
 
 function calculateMacros(profile) {
   const {age,weight,height,goal,activity,bodyType,gender}=profile;
-  // Mifflin-St Jeor
-  let bmr = gender==="male"
-    ? 10*weight + 6.25*height - 5*age + 5
-    : 10*weight + 6.25*height - 5*age - 161;
+  let bmr = gender==="male" ? 10*weight+6.25*height-5*age+5 : 10*weight+6.25*height-5*age-161;
   const m={sed:1.2,low:1.375,med:1.55,high:1.725};
-  let tdee = bmr * (m[activity]||1.4);
-  // Goal deficit/surplus
-  if(goal==="lose") tdee -= 500;
-  else if(goal==="muscle") tdee += 250;
-  else if(goal==="strength") tdee += 200;
-  if(bodyType==="endo"&&goal==="lose") tdee -= 100;
-  if(bodyType==="ecto"&&goal==="muscle") tdee += 150;
-  // Minimumi — medicinski standard
-  const minKcal = gender==="male" ? 1500 : 1200;
-  const kcal = Math.max(Math.round(tdee), minKcal);
-  // Macros: proteini 2g/kg, masti 0.8g/kg, ostatak ugljeni hidrati
-  const prot = Math.round(weight * 2);
-  const fat  = Math.round(weight * 0.8);
-  const carbKcal = Math.max(kcal - prot*4 - fat*9, 0);
-  const carb = Math.round(carbKcal / 4);
-  return {kcal, prot, carb, fat};
+  let tdee=bmr*(m[activity]||1.4);
+  if(goal==="lose") tdee-=500;
+  else if(goal==="muscle") tdee+=250;
+  else if(goal==="strength") tdee+=200;
+  if(bodyType==="endo"&&goal==="lose") tdee-=100;
+  if(bodyType==="ecto"&&goal==="muscle") tdee+=150;
+  const minKcal=gender==="male"?1500:1200;
+  const kcal=Math.max(Math.round(tdee),minKcal);
+  const prot=Math.round(weight*2);
+  const fat=Math.round(weight*0.8);
+  const carb=Math.round(Math.max(kcal-prot*4-fat*9,0)/4);
+  return {kcal,prot,carb,fat};
 }
 
 
