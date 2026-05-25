@@ -489,8 +489,8 @@ function App() {
 
   useEffect(()=>{
     const saved=localStorage.getItem("fitlife_user");
-    if(saved){try{const u=JSON.parse(saved);setCurrentUser(u);const p=localStorage.getItem(`fitlife_progress_${u.username}`);if(p)setProgressEntries(JSON.parse(p));setScreen("results");}catch{}}
-  },[]);
+    if(saved){try{const u=JSON.parse(saved);const recalc=calculateMacros(u);u.kcal=recalc.kcal;u.prot=recalc.prot;u.carb=recalc.carb;u.fat=recalc.fat;localStorage.setItem("fitlife_user",JSON.stringify(u));setCurrentUser(u);
+
 
   const loadAllUsers=()=>{
     const users=JSON.parse(localStorage.getItem("fitlife_users")||"{}");
