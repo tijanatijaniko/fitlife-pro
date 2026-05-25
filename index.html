@@ -484,12 +484,229 @@ function cleanMeal(meal, banwords) {
   }
   return out;
 }
-function getMeals(profile,dayIdx) {
-  const plans = WEEK_MEALS[profile.goal] || WEEK_MEALS.maintain;
-  const meal = plans[dayIdx % 7];
-  const banwords = getBanwords(profile);
-  return cleanMeal(meal, banwords);
+function getSupplements(profile) {
+  const {goal, injuries, teloProblems, age, gender, sleepQuality, stressLevel, waterIntake} = profile;
+  const ag = getAgeGroup(age);
+  const hasJoints = injuries && (injuries.toLowerCase().includes("koleno") || injuries.toLowerCase().includes("zglob"));
+  const hasBack = injuries && injuries.toLowerCase().includes("led");
+  const hasThyroid = injuries && injuries.toLowerCase().includes("štitna");
+  const hasPCOS = injuries && injuries.toLowerCase().includes("pcos");
+
+  let suplementi = [];
+
+  // ===== BAZA — svi korisnici =====
+  suplementi.push({
+    naziv: "Vitamin D3 + K2",
+    doza: "2000–4000 IJ dnevno D3 + 100mcg K2",
+    vreme: "Uz obrok koji sadrži masti (doručak ili ručak)",
+    razlog: "Većina žena ima deficit vitamina D. D3 reguliše imunitet, raspoloženje, hormone i apsorpciju kalcijuma. K2 usmerava kalcijum u kosti, ne u arterije.",
+    savet: "Uzimaj zajedno sa omega-3 za bolju apsorpciju. Testiraj nivo D vitamina u krvi jednom godišnje."
+  });
+
+  suplementi.push({
+    naziv: "Magnezijum glicinat",
+    doza: "300–400mg elementarnog magnezijuma",
+    vreme: "Uveče, 1 sat pre spavanja",
+    razlog: "Magnezijum učestvuje u 300+ enzimskih reakcija. Smanjuje stres, poboljšava san, smanjuje grčeve u mišićima i PMS simptome.",
+    savet: "Glicinat forma je najblažu po stomaku i najbolje se apsorbuje. Izbegavaj magnezijum oksid — slaba apsorpcija."
+  });
+
+  suplementi.push({
+    naziv: "Omega-3 masne kiseline (EPA + DHA)",
+    doza: "1000–2000mg EPA+DHA dnevno",
+    vreme: "Uz obrok sa mastima, podeli na 2 doze",
+    razlog: "Smanjuje zapaljenje u telu, podržava zdravlje srca, mozga i zglobova. Posebno važno ako ne jedeš ribu 2–3x nedeljno.",
+    savet: "Budi riblje ulje, ne alge (osim ako si veganka). Proveri da na etiketi piše ukupan EPA+DHA, ne samo 'fish oil'."
+  });
+
+  // ===== PO CILJU =====
+  if (goal === "lose") {
+    suplementi.push({
+      naziv: "L-karnitin",
+      doza: "1000–2000mg dnevno",
+      vreme: "30 minuta pre treninga ili ujutru",
+      razlog: "Pomaže transport masnih kiselina u mitohondrije gde se sagorevaju kao energija. Efikasnost se povećava uz redovan trening.",
+      savet: "Nije zamena za deficit kalorija — to je samo podrška. Uzimaj minimum 8 nedelja da vidiš efekte."
+    });
+    suplementi.push({
+      naziv: "Hrom pikolinat",
+      doza: "200–400mcg dnevno",
+      vreme: "Uz najveći obrok u danu",
+      razlog: "Poboljšava insulinsku osetljivost i smanjuje žudnju za slatkišima. Korisno za osobe sa čestim napadima gladi.",
+      savet: "Ne uzimaj više od preporučene doze. Konzultuj lekara ako imaš dijabetes."
+    });
+    suplementi.push({
+      naziv: "Zeleni čaj ekstrakt (EGCG)",
+      doza: "400–500mg EGCG dnevno",
+      vreme: "Ujutru ili pre treninga, ne na prazan stomak",
+      razlog: "Termogeni efekat — blago ubrzava metabolizam. Bogat antioksidansima. Blaži stimulans od kafe.",
+      savet: "Ako si osetljiva na kofein, beri varijantu bez kofeina. Ne kombinuj sa previše kafe."
+    });
+  }
+
+  if (goal === "muscle" || goal === "strength") {
+    suplementi.push({
+      naziv: "Kreatin monohidrat",
+      doza: "3–5g dnevno",
+      vreme: "Svaki dan u isto vreme — uz obrok (trening ili slobodan dan)",
+      razlog: "Najistraženiji suplement u sportu. Povećava snagu, izdržljivost i rast mišića. Siguran za žene — ne uzrokuje 'napuhanost' ako se pije dovoljno vode.",
+      savet: "Ne treba 'punjenje'. Uzimaj svaki dan konzistentno. Pij minimum 2–3L vode dnevno uz kreatin."
+    });
+    suplementi.push({
+      naziv: "Whey protein ili biljni protein",
+      doza: "20–30g proteina po obroku",
+      vreme: "Nakon treninga ili kao zamena za užinu",
+      razlog: "Pomaže dostizanje dnevnog cilja proteina (2g/kg). Praktično kada nije moguće uneti dovoljno proteina iz hrane.",
+      savet: "Nije obavezan ako unosiš dovoljno proteina iz hrane. Whey izolat je bolji izbor za osetljiv stomak."
+    });
+    suplementi.push({
+      naziv: "Beta-alanin",
+      doza: "3.2–6.4g dnevno, podeljeno u 2 doze",
+      vreme: "Pre treninga i uz obrok",
+      razlog: "Povećava karnosin u mišićima, odlaže umor tokom intenzivnog treninga. Korisno za visok broj ponavljanja.",
+      savet: "Normalna pojava: 'trnjenje' kože 15–30 min nakon uzimanja — bezopasno. Prolazi uz regularnu upotrebu."
+    });
+  }
+
+  if (goal === "cardio") {
+    suplementi.push({
+      naziv: "Elektroliti (Natrijum, Kalijum, Magnezijum)",
+      doza: "Po uputstvu proizvoda",
+      vreme: "Tokom i posle dužih treninga (60+ minuta)",
+      razlog: "Nadoknada minerala izgubljenih znojenjem. Sprečava grčeve, umor i dehidraciju.",
+      savet: "Za treninge kraće od 60 min — obična voda je dovoljna. Izbegavaj elektrolitne napitke sa previše šećera."
+    });
+    suplementi.push({
+      naziv: "Koenzim Q10 (CoQ10)",
+      doza: "100–200mg dnevno",
+      vreme: "Uz obrok sa mastima",
+      razlog: "Esencijalan za produkciju energije u ćelijama. Poboljšava aerobni kapacitet i smanjuje oksidativni stres od treninga.",
+      savet: "Ubiquinol forma je bioraspoloživija od ubiquinone, posebno kod osoba starijih od 35 godina."
+    });
+  }
+
+  if (goal === "rehab") {
+    suplementi.push({
+      naziv: "Kolagen tip II + Vitamin C",
+      doza: "10g kolagena + 500mg vitamina C",
+      vreme: "Ujutru, na prazan stomak ili 30 min pre treninga",
+      razlog: "Vitamin C je neophodan za sintezu kolagena. Kolagen tip II podržava oporavak hrskavice i zglobova.",
+      savet: "Uzimaj konzistentno minimum 3 meseca za vidljive rezultate. Hidrolizovani kolagen se bolje apsorbuje."
+    });
+  }
+
+  // ===== PO ZDRAVSTVENIM PROBLEMIMA =====
+  if (hasJoints) {
+    suplementi.push({
+      naziv: "Glukozamin + Hondroitin",
+      doza: "1500mg glukozamina + 1200mg hondroitina dnevno",
+      vreme: "Uz obrok, podeli na 2–3 doze",
+      razlog: "Podržava zdravlje hrskavice i smanjuje bol u zglobovima. Studije pokazuju efikasnost kod osteoartritisa kolena.",
+      savet: "Efekti se vide posle 8–12 nedelja redovnog uzimanja. Poveži sa kolagenom tipa II za bolji efekat."
+    });
+    suplementi.push({
+      naziv: "Kurkumin (Turmeric) + Piperin",
+      doza: "500–1000mg kurkumina sa 5–10mg piperina",
+      vreme: "Uz obrok",
+      razlog: "Snažan prirodni antiinflamatorni agens. Piperin povećava apsorpciju kurkumina za 2000%.",
+      savet: "Standardizovani ekstrakt (95% kurkuminoida) je daleko efikasniji od obične kurkume u prahu."
+    });
+  }
+
+  if (hasBack) {
+    suplementi.push({
+      naziv: "Magnezijum glicinat (pojačana doza)",
+      doza: "400–500mg uveče",
+      vreme: "Pre spavanja",
+      razlog: "Opušta mišiće paravertebralne muskulature, smanjuje napetost i bol u leđima.",
+      savet: "Kombiniraj sa istezanjem i vežbama za core za dugoročno rešenje bola u leđima."
+    });
+  }
+
+  if (hasThyroid) {
+    suplementi.push({
+      naziv: "Selen",
+      doza: "100–200mcg dnevno",
+      vreme: "Ujutru uz doručak",
+      razlog: "Selen je esencijalan za konverziju T4 u aktivni T3 hormon. Deficit selena direktno utiče na funkciju štitne žlezde.",
+      savet: "Ne prekoračuj 400mcg dnevno — toksičan u visokim dozama. Brazil orasi su odličan prirodni izvor."
+    });
+    suplementi.push({
+      naziv: "Cink + Bakar",
+      doza: "15–25mg cinka + 1–2mg bakra",
+      vreme: "Uz obrok",
+      razlog: "Cink podržava sintezu tireoidnih hormona. Bakar se dodaje jer visok unos cinka može smanjiti nivo bakra.",
+      savet: "Uzimaj odvojeno od kalcijuma i gvožđa koji smanjuju apsorpciju cinka."
+    });
+  }
+
+  if (hasPCOS) {
+    suplementi.push({
+      naziv: "Inozitol (Mio-inozitol + D-hiro-inozitol 40:1)",
+      doza: "2000–4000mg mio-inozitola + 50–100mg D-hiro-inozitola",
+      vreme: "Podeli na 2 doze — ujutru i uveče, pre jela",
+      razlog: "Jedan od najistraženijih prirodnih tretmana za PCOS. Poboljšava insulinsku rezistenciju, reguliše menstrualni ciklus i smanjuje androgene.",
+      savet: "Efekti se vide posle 3–6 meseci. Kombinuj sa magnezijumom i vitaminom D za sinergijski efekat."
+    });
+    suplementi.push({
+      naziv: "Berberine",
+      doza: "500mg, 2–3x dnevno",
+      vreme: "Pre obroka",
+      razlog: "Poboljšava insulinsku osetljivost slično metforminu. Pomaže regulaciji šećera u krvi i težine kod PCOS.",
+      savet: "Konsultuj lekara pre uzimanja ako koristiš lekove za dijabetes ili hormonsku terapiju."
+    });
+  }
+
+  // ===== SAN I STRES =====
+  if (sleepQuality === "bad" || stressLevel === "high") {
+    suplementi.push({
+      naziv: "Ashwagandha (KSM-66)",
+      doza: "300–600mg dnevno",
+      vreme: "Uveče uz obrok",
+      razlog: "Adaptogen koji snižava kortizol (hormon stresa), poboljšava san i smanjuje anksioznost. KSM-66 je klinički najistraženiji ekstrakt.",
+      savet: "Uzimaj konzistentno minimum 8 nedelja. Može blago smanjiti krvni pritisak — konsultuj lekara ako imaš nizak pritisak."
+    });
+  }
+
+  // ===== ŽENE OPŠTE =====
+  if (gender === "female") {
+    suplementi.push({
+      naziv: "Gvožđe (Fero bisglicinat)",
+      doza: "Samo ako postoji deficit — uraditi krvnu sliku",
+      vreme: "Ujutru na prazan stomak sa vitaminom C",
+      razlog: "Žene gube gvožđe menstruacijom. Deficit uzrokuje umor, slabost i lošu izdržljivost na treningu.",
+      savet: "NE uzimaj gvožđe bez krvne slike. Previše gvožđa je štetno. Bisglicinat forma ne izaziva zatvor kao ferro sulfat."
+    });
+    suplementi.push({
+      naziv: "Folna kiselina / Metilfolat",
+      doza: "400–800mcg dnevno",
+      vreme: "Ujutru uz doručak",
+      razlog: "Esencijalna za zdravlje ćelija, prevenciju anemije i kardiovaskularno zdravlje. Posebno važna kod žena reproduktivne dobi.",
+      savet: "Metilfolat (5-MTHF) je aktivna forma — bolja za osobe sa MTHFR genetskom varijantom."
+    });
+  }
+
+  // ===== STARIJE ŽENE =====
+  if (ag === "middle" || ag === "senior") {
+    suplementi.push({
+      naziv: "Kalcijum citrat + Vitamin D3",
+      doza: "500–1000mg kalcijuma dnevno (podeli na 2 doze)",
+      vreme: "Uz obroke, ne odjednom",
+      razlog: "Sa godinama opada gustina kostiju (osteoporoza). Kalcijum citrat se bolje apsorbuje od karbonata i ne zahteva kiselinu u stomaku.",
+      savet: "Ne uzimaj više od 500mg odjednom — telo ne može apsorbovati više. Kombiniraj sa vitaminom K2."
+    });
+    suplementi.push({
+      naziv: "Koenzim Q10 (CoQ10 Ubiquinol)",
+      doza: "100–200mg dnevno",
+      vreme: "Uz obrok sa mastima",
+      razlog: "Produkcija CoQ10 opada sa godinama. Ubiquinol forma je aktivna i daleko bolje se apsorbuje od ubiquinone posle 35. godine.",
+      savet: "Posebno preporučeno ako uzimate statine (lekove za holesterol) koji dramatično smanjuju CoQ10."
+    });
+  }
+
+  return suplementi;
 }
+
 
 // ===== MAIN APP =====
 function App() {
